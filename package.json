@@ -1,0 +1,31 @@
+{
+  "name": "test_goolg_facemesh",
+  "version": "0.0.1",
+  "description": "google facemesh test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-google-facemesh": "node test-facemesh.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henryhuangb3d/test_goolg_facemesh.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henryhuangb3d/test_goolg_facemesh/issues"
+  },
+  "homepage": "https://github.com/henryhuangb3d/test_goolg_facemesh#readme",
+  "dependencies": {
+    "@tensorflow-models/face-landmarks-detection": "0.0.3",
+    "@tensorflow-models/facemesh": "0.0.5",
+    "@tensorflow/tfjs": "^3.0.0",
+    "@tensorflow/tfjs-backend-wasm": "^3.0.0",
+    "@tensorflow/tfjs-node": "^3.0.0",
+    "image-pixels": "^2.2.2",
+    "js-yaml": "^4.0.0",
+    "path": "^0.12.7",
+    "yargs": "^16.2.0"
+  }
+}
