@@ -14,11 +14,11 @@ const calculateData = async () => {
     console.log(new Date(), "tf.getBackend:", tf.getBackend());
     const model = await faceLandmarksDetection.load(faceLandmarksDetection.SupportedPackages.mediapipeFacemesh);
     console.log(new Date(), "load model done");
-    let fileBuffer = fs.readFileSync("./stream.jpg");
-    let startTime = Date.now();
-    let imageData = await pixels(fileBuffer);
-    console.log(new Date(), `decode to Type ImageData  cost ${Date.now() - startTime} ms`);
     for (i = 0; i < 10; i++) {
+        let fileBuffer = fs.readFileSync("./stream.jpg");
+        let pixelStartTime = Date.now();
+        let imageData = await pixels(fileBuffer);
+        console.log(new Date(), `decode to Type ImageData  cost ${Date.now() - pixelStartTime} ms`);
         let startTime = Date.now();
         let faces = await model.estimateFaces({ input: imageData });
         console.log(new Date(), `google facemesh estimateFaces Done cost ${Date.now() - startTime} ms`);
