@@ -1,5 +1,5 @@
 const fs = require("fs");
-// const path = require("path");
+const path = require("path");
 const pixels = require("image-pixels");
 // const yaml = require("js-yaml");
 // const tf = require("@tensorflow/tfjs");
@@ -14,8 +14,11 @@ const calculateData = async () => {
     console.log(new Date(), "tf.getBackend:", tf.getBackend());
     const model = await faceLandmarksDetection.load(faceLandmarksDetection.SupportedPackages.mediapipeFacemesh);
     console.log(new Date(), "load model done");
-    for (i = 0; i < 10; i++) {
-        let fileBuffer = fs.readFileSync("./stream.jpg");
+    let files = fs.readdirSync("./stream");
+    console.log("files:", files);
+    for (i in files) {
+        let file = path.join("./stream", files[i])
+        let fileBuffer = fs.readFileSync(file);
         let pixelStartTime = Date.now();
         let imageData = await pixels(fileBuffer);
         console.log(new Date(), `decode to Type ImageData  cost ${Date.now() - pixelStartTime} ms`);
